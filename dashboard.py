@@ -323,8 +323,10 @@ with tab4:
                 title='Distribuição de Transações por Hora do Dia',
                 markers=True
             )
-            fig_hourly.update_xaxis(dtick=1, title='Hora do Dia')
-            fig_hourly.update_yaxis(title='Número de Transações')
+            fig_hourly.update_layout(
+            xaxis=dict(dtick=1, title='Hora do Dia'),
+            yaxis=dict(title='Número de Transações')
+            )
             fig_hourly.update_traces(line_color='#e67e22', line_width=3)
             st.plotly_chart(fig_hourly, use_container_width=True)
         
@@ -338,8 +340,10 @@ with tab4:
                 color='avg_amount',
                 color_continuous_scale='Reds'
             )
-            fig_avg.update_xaxis(dtick=1, title='Hora do Dia')
-            fig_avg.update_yaxis(title='Ticket Médio (R$)')
+            fig_avg.update_layout(
+            xaxis=dict(dtick=1, title='Hora do Dia'),
+            yaxis=dict(title='Ticket Médio (R$)')
+            )
             st.plotly_chart(fig_avg, use_container_width=True)
         
         # Insights
