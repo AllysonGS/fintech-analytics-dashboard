@@ -145,29 +145,10 @@ ORDER BY total_volume DESC
 LIMIT 10;
 ```
 
-## 📈 Próximos Passos
-
-Melhorias futuras que podem ser implementadas:
-- [ ] Machine Learning para detecção de fraudes
-- [ ] API REST para consumo externo
-- [ ] Integração com dados reais
-- [ ] Alertas automatizados
-- [ ] Exportação de relatórios (PDF/Excel)
-- [ ] Análise preditiva de tendências
-- [ ] Sistema de autenticação
-- [ ] Logs de auditoria
-
 ## 👨‍💻 Autor
 
-Allyson - [GitHub](https://github.com/seu-usuario)
+Allyson - [GitHub](https://github.com/AllysonGS)
 
 ## 📄 Licença
 
 MIT License - Projeto desenvolvido para fins educacionais e portfólio.
-
----
-
-**💡 Dica**: Este projeto foi desenvolvido para demonstrar habilidades em SQL, análise de dados e desenvolvimento full-stack em contexto fintech, alinhado com requisitos de vagas em Customer Support Engineering.
-```
-
----
