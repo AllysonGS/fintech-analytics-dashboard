@@ -145,18 +145,6 @@ ORDER BY total_volume DESC
 LIMIT 10;
 ```
 
-## 📈 Próximos Passos
-
-Melhorias futuras que podem ser implementadas:
-- [ ] Machine Learning para detecção de fraudes
-- [ ] API REST para consumo externo
-- [ ] Integração com dados reais
-- [ ] Alertas automatizados
-- [ ] Exportação de relatórios (PDF/Excel)
-- [ ] Análise preditiva de tendências
-- [ ] Sistema de autenticação
-- [ ] Logs de auditoria
-
 ## 👨‍💻 Autor
 
 Allyson - [GitHub](https://github.com/seu-usuario)
