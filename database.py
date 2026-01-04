@@ -174,27 +174,27 @@ def get_anomalies(threshold_amount=10000, threshold_frequency=5):
     
     df_high = pd.read_sql_query(query_high_value, conn, params=(threshold_amount,))
     
-    # Múltiplas transações do mesmo cliente em 1 hora
+#   Múltiplas transações do mesmo cliente em 1 hora
     query_frequency = '''
     WITH customer_hourly AS (
-        SELECT 
-            customer_id,
-            strftime('%Y-%m-%d %H', transaction_date) as hour_window,
-            COUNT(*) as transactions_count
-        FROM transactions
-        GROUP BY customer_id, hour_window
-        HAVING COUNT(*) >= ?
+    SELECT 
+        customer_id,
+        strftime('%Y-%m-%d %H', transaction_date) as hour_window,
+        COUNT(*) as transactions_count
+    FROM transactions
+    GROUP BY customer_id, hour_window
+    HAVING COUNT(*) >= ?
     )
     SELECT 
-        t.customer_id,
-        c.name as customer_name,
-        ch.hour_window,
-        ch.transactions_count,
-        'high_frequency' as anomaly_type
+    t.customer_id,
+    c.name as customer_name,
+    ch.hour_window,
+    ch.transactions_count,
+    'high_frequency' as anomaly_type
     FROM customer_hourly ch
-    JOIN customers c ON ch.customer_id = c.customer_id
+    JOIN customers c ON ch.customer_id = c.id
     JOIN transactions t ON t.customer_id = ch.customer_id 
-        AND strftime('%Y-%m-%d %H', t.transaction_date) = ch.hour_window
+    AND strftime('%Y-%m-%d %H', t.transaction_date) = ch.hour_window
     GROUP BY t.customer_id, ch.hour_window
     ORDER BY ch.transactions_count DESC
     LIMIT 50
